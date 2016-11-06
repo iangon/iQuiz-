@@ -14,6 +14,7 @@
 		3CED30041DCE4171007150B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CED30021DCE4171007150B5 /* LaunchScreen.storyboard */; };
 		3CED300F1DCE4171007150B5 /* iQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED300E1DCE4171007150B5 /* iQuizTests.swift */; };
 		3CED301A1DCE4171007150B5 /* iQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED30191DCE4171007150B5 /* iQuizUITests.swift */; };
+		3CED30281DCE4245007150B5 /* QuizesTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED30271DCE4245007150B5 /* QuizesTableViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3CED30151DCE4171007150B5 /* iQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CED30191DCE4171007150B5 /* iQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuizUITests.swift; sourceTree = "<group>"; };
 		3CED301B1DCE4171007150B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CED30271DCE4245007150B5 /* QuizesTableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizesTableViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				3CED30001DCE4171007150B5 /* Assets.xcassets */,
 				3CED30021DCE4171007150B5 /* LaunchScreen.storyboard */,
 				3CED30051DCE4171007150B5 /* Info.plist */,
+				3CED30271DCE4245007150B5 /* QuizesTableViewViewController.swift */,
 			);
 			path = iQuiz;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CED30281DCE4245007150B5 /* QuizesTableViewViewController.swift in Sources */,
 				3CED2FFC1DCE4171007150B5 /* ViewController.swift in Sources */,
 				3CED2FFA1DCE4171007150B5 /* AppDelegate.swift in Sources */,
 			);
