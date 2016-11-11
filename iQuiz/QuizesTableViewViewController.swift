@@ -10,6 +10,19 @@ import UIKit
 
 class QuizesTableViewViewController: UITableViewController  {
     var dataSourceSubjectsArray: Array<String> = ["Mathematics", "Marvel Super Heroes", "Science"]
+    var dataDescription = ["Do all the maths", "Save the world", "For research purposes"]
+    var dataMathQuestions : Array<String> = [
+        "1+1",
+        "2+2",
+        "3+3"
+    ]
+    var dataMathAnswers = [
+        ["1", "2", "3", "4"],
+        ["4", "5", "6", "7"],
+        ["1", "2", "6", "4"],
+        ]
+    
+    var dataMathRealAnswerIndex = [1,0,2]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +53,13 @@ class QuizesTableViewViewController: UITableViewController  {
     
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
-        //NSLog(String(indexPath.row))
-        // Configure the cell...
-        cell.textLabel?.text = dataSourceSubjectsArray[indexPath.row]
-     
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)  as! CustomTableViewCell
+        
+        let subject  = dataSourceSubjectsArray[indexPath.row]
+        let description = dataDescription[indexPath.row]
+        cell.cellSubject?.text = subject
+        cell.cellDescription?.text = description
+        
         return cell
      }
     
@@ -63,6 +78,15 @@ class QuizesTableViewViewController: UITableViewController  {
         
         self.present(alertController, animated: true) {
             // ...
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let newView = segue.destination as! QuestionViewController
+                
+        if segue.identifier == "subjectSelected" {
+            newView.question = "Question1"
         }
     }
     
