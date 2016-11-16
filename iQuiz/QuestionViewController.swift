@@ -10,12 +10,19 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
-    var answerIndex: Int = 0 ;
-
-    var question : String = ""
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
     
-    var dataMathAnswers : Array<String> = []
+    var answerIndex: Int = 0
+    var questionIndex = 0
+    var realAnswers : Array<Int> = []
+    var dataQuestions : Array<String> = []
+    var dataAnswers : [[String]] = [[]]
+    var question : String = ""
     var userAnswer : String = ""
+    var selectedSubject = ""
     
 
     override func viewDidLoad() {
@@ -23,6 +30,13 @@ class QuestionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         questionLabel.text = question
+        
+        button1.setTitle(dataAnswers[questionIndex][0], for: .normal)
+        button2.setTitle(dataAnswers[questionIndex][1], for: .normal)
+        button3.setTitle(dataAnswers[questionIndex][2], for: .normal)
+        button4.setTitle(dataAnswers[questionIndex][3], for: .normal)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,10 +51,15 @@ class QuestionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let newView = segue.destination as! AnswerViewController
         newView.userAnswer = self.userAnswer
-        newView.answerIndex = answerIndex
+        newView.answerIndex = self.answerIndex
+        newView.questionIndex = self.questionIndex
+        newView.dataQuestions = self.dataQuestions
+        newView.dataAnswers = self.dataAnswers
+        newView.realAnswers = self.realAnswers
+        newView.selectedSubject = self.selectedSubject
         
         if(segue.identifier == "firstAnswerButton") {
-            newView.answerLabel?.text = "Actual Answer"
+            newView.realAnswer = String(dataAnswers[questionIndex][realAnswers[answerIndex]])
         }
     }
     

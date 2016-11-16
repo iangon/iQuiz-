@@ -8,10 +8,37 @@
 
 import UIKit
 
-class QuizesTableViewViewController: UITableViewController  {
+class QuizesTableViewViewController: UITableViewController {
     var dataSourceSubjectsArray: Array<String> = ["Mathematics", "Marvel Super Heroes", "Science"]
     var dataDescription = ["Do all the maths", "Save the world", "For research purposes"]
-    var dataMathQuestions : Array<String> = [
+    var selectedSubject = ""
+    var dataMarvelQuestions = [
+        "Which Marvel Team is Wolverine on?",
+        "Who is Peter Parker?",
+        "What is Iron Man's real name?"
+    ]
+    var dataMarvelAnswers = [
+        ["X-men", "Guardians of the Galaxy", "Suicide Squad", "Avengers"],
+        ["Storm", "Spiderman", "Captain America", "Silver Surfer"],
+        ["Charles Xavier", "Rob Stark", "Rocket", "Tony Stark"]
+    ]
+    
+    var dataMarvelRealAnswerIndex = [0,1,3]
+    
+    var dataScienceQuestions = [
+    "Brass gets discoloured in air because of the presence of which of the following gases in air?",
+        "What is the closest planet to the Sun?",
+        "Solar power generates electricity from what source?"
+    ]
+    var dataScienceAnswers = [
+        ["Oxygen", "Saturn", "Carbon ", "Nitrogen"],
+        ["Mercury", "Spiderman", "Earth", "Venus"],
+        ["Water", "Gravity", "Gas", "The Sun"]
+    ]
+    
+    var dataScienceRealAnswerIndex = [1,0,3]
+    
+    var dataMathQuestions = [
         "1+1",
         "2+2",
         "3+3"
@@ -19,10 +46,12 @@ class QuizesTableViewViewController: UITableViewController  {
     var dataMathAnswers = [
         ["1", "2", "3", "4"],
         ["4", "5", "6", "7"],
-        ["1", "2", "6", "4"],
-        ]
+        ["1", "2", "6", "4"]
+    ]
     
     var dataMathRealAnswerIndex = [1,0,2]
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,9 +113,29 @@ class QuizesTableViewViewController: UITableViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let newView = segue.destination as! QuestionViewController
-                
+        let cell = sender as! CustomTableViewCell
+        let selectedSubject = cell.cellSubject.text!
+        newView.selectedSubject = self.selectedSubject
+        
+        switch selectedSubject {
+            case "Mathematics":
+                newView.dataQuestions = self.dataMathQuestions
+                newView.dataAnswers = self.dataMathAnswers
+                newView.realAnswers = self.dataMathRealAnswerIndex
+            
+            case "Marvel Super Heroes":
+                newView.dataQuestions = self.dataMarvelQuestions
+                newView.dataAnswers = self.dataMarvelAnswers
+                newView.realAnswers = self.dataMarvelRealAnswerIndex
+            case "Science":
+                newView.dataQuestions = self.dataScienceQuestions
+                newView.dataAnswers = self.dataScienceAnswers
+                newView.realAnswers = self.dataScienceRealAnswerIndex
+            default: break
+        }
+        
         if segue.identifier == "subjectSelected" {
-            newView.question = "Question1"
+            newView.question = newView.dataQuestions[0]
         }
     }
     
@@ -134,5 +183,4 @@ class QuizesTableViewViewController: UITableViewController  {
      // Pass the selected object to the new view controller.
      }
      */
-
 }

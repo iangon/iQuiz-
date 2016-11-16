@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fp1-q7-eaW" id="TZD-vQ-xg1">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yV0-Ql-j0Q">
@@ -128,6 +128,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="FoE-Tj-red" id="C5f-MO-9gv"/>
+                        <outlet property="button2" destination="CXF-Is-Yfs" id="SGf-pO-7P0"/>
+                        <outlet property="button3" destination="wrI-rn-J70" id="v9x-Q6-GAW"/>
+                        <outlet property="button4" destination="y00-YS-7t2" id="Rjf-v9-sd5"/>
                         <outlet property="questionLabel" destination="oPc-1E-kVO" id="Hlc-7V-wEZ"/>
                     </connections>
                 </viewController>
@@ -152,7 +156,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next Question"/>
                                 <connections>
-                                    <segue destination="PmR-if-W1N" kind="show" id="LdA-nA-k2e"/>
+                                    <segue destination="PmR-if-W1N" kind="show" identifier="toQuestion" id="LdA-nA-k2e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoD-3z-hcJ">
@@ -160,7 +164,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back to Subjects"/>
                                 <connections>
-                                    <segue destination="Awm-Kz-Ybq" kind="show" id="fo6-6o-vD4"/>
+                                    <segue destination="Awm-Kz-Ybq" kind="show" identifier="toSubjects" id="fo6-6o-vD4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYU-XV-Iao">
@@ -175,6 +179,8 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="mYU-XV-Iao" id="gRg-Hh-nNm"/>
+                        <outlet property="backToSubjects" destination="FoD-3z-hcJ" id="hFz-Wh-2VM"/>
+                        <outlet property="nextQuestion" destination="Xpd-ga-bc3" id="7rM-Q9-hwK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvf-TN-FTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +192,7 @@
         <image name="bullet-point" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="11v-aa-cTt"/>
-        <segue reference="Qf1-zs-eLJ"/>
+        <segue reference="LdA-nA-k2e"/>
+        <segue reference="h43-ta-yjP"/>
     </inferredMetricsTieBreakers>
 </document>
